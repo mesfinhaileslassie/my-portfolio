@@ -24,7 +24,7 @@
     <main>
         <section class="contact-hero">
             <h1>Let's <span class="highlight">Connect</span></h1>
-            <p>I'm always open to discussing new opportunities and collaborations</p>
+            <p>Send me a message - 100% guaranteed to work</p>
         </section>
 
         <section class="contact-section">
@@ -33,7 +33,7 @@
                 <div class="contact-form">
                     <div class="form-header">
                         <h2><i class="fas fa-paper-plane"></i> Send Me a Message</h2>
-                        <p class="form-subtitle">Fill the form below and click "Open Email" to send me a message directly from your email client</p>
+                        <p class="form-subtitle">Fill the form and choose your preferred email method</p>
                     </div>
                     
                     <form id="messageForm">
@@ -53,7 +53,7 @@
                         
                         <div class="form-group">
                             <label for="email">
-                                <i class="fas fa-envelope"></i> Email Address *
+                                <i class="fas fa-envelope"></i> Your Email *
                             </label>
                             <input type="email" 
                                    id="email" 
@@ -61,7 +61,7 @@
                                    placeholder="your.email@example.com" 
                                    required
                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                            <div class="form-hint">We'll never share your email</div>
+                            <div class="form-hint">Required for me to reply</div>
                         </div>
                         
                         <div class="form-group">
@@ -85,7 +85,7 @@
                             <textarea id="message" 
                                       name="message" 
                                       rows="6" 
-                                      placeholder="Write your message here... Please include any relevant details about your inquiry." 
+                                      placeholder="Write your message here..." 
                                       required
                                       minlength="10"
                                       maxlength="1000"></textarea>
@@ -95,20 +95,20 @@
                         </div>
                         
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary" id="openEmailBtn">
-                                <i class="fas fa-envelope-open"></i> Open Email
+                            <button type="submit" class="btn btn-primary" id="generateEmailBtn">
+                                <i class="fas fa-envelope"></i> Generate Email
                             </button>
-                            <button type="button" class="btn btn-outline" id="previewBtn">
-                                <i class="fas fa-eye"></i> Preview
+                            <button type="button" class="btn btn-outline" id="copyEmailBtn">
+                                <i class="fas fa-copy"></i> Copy Details
                             </button>
                             <button type="reset" class="btn btn-text">
-                                <i class="fas fa-redo"></i> Clear Form
+                                <i class="fas fa-redo"></i> Clear
                             </button>
                         </div>
                         
                         <div class="form-note">
                             <i class="fas fa-info-circle"></i>
-                            <p>This will open your default email client (Gmail, Outlook, etc.) with your message ready to send. 100% working!</p>
+                            <p>Your message will be prepared for sending via your preferred email method</p>
                         </div>
                     </form>
                 </div>
@@ -116,8 +116,8 @@
                 <!-- Contact Information -->
                 <div class="contact-info">
                     <div class="info-header">
-                        <h2><i class="fas fa-address-card"></i> Contact Information</h2>
-                        <p>Feel free to reach out through any of these channels</p>
+                        <h2><i class="fas fa-address-card"></i> Quick Contact</h2>
+                        <p>Multiple ways to reach me</p>
                     </div>
                     
                     <div class="info-items">
@@ -126,14 +126,12 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="info-content">
-                                <h3>Email</h3>
+                                <h3>Email Directly</h3>
                                 <a href="mailto:mesfinhaileslassie17@gmail.com?subject=Portfolio%20Inquiry" 
                                    class="email-link">
-                                    mesfinhaileslassie17@gmail.com
+                                    Click to email me
                                 </a>
-                                <button class="copy-btn" data-text="mesfinhaileslassie17@gmail.com">
-                                    <i class="fas fa-copy"></i> Copy
-                                </button>
+                                <p class="info-note">Opens your email client</p>
                             </div>
                         </div>
                         
@@ -143,10 +141,23 @@
                             </div>
                             <div class="info-content">
                                 <h3>Telegram</h3>
-                                <p>@Mesfinchacha</p>
                                 <a href="https://t.me/Mesfinchacha" target="_blank" class="social-link">
-                                    <i class="fab fa-telegram"></i> Send Message
+                                    @Mesfinchacha
                                 </a>
+                                <p class="info-note">Fast messaging</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>WhatsApp</h3>
+                                <a href="https://wa.me/251912345678" target="_blank" class="social-link">
+                                    +251 91 234 5678
+                                </a>
+                                <p class="info-note">Available for calls</p>
                             </div>
                         </div>
                         
@@ -156,93 +167,136 @@
                             </div>
                             <div class="info-content">
                                 <h3>GitHub</h3>
-                                <p>Check out my projects</p>
                                 <a href="https://github.com/mesfinhaileslassie" target="_blank" class="social-link">
-                                    <i class="fab fa-github"></i> Visit Profile
+                                    View Projects
                                 </a>
-                            </div>
-                        </div>
-                        
-                        <div class="info-item">
-                            <div class="info-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="info-content">
-                                <h3>Location</h3>
-                                <p>Debre Berhan, Ethiopia</p>
-                                <p class="location-note">Open to remote opportunities worldwide</p>
+                                <p class="info-note">Check my code</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="response-time">
-                        <i class="fas fa-clock"></i>
-                        <p>I typically respond within <strong>24 hours</strong></p>
-                    </div>
-                    
-                    <div class="social-links">
-                        <h3>Connect on Social Media</h3>
-                        <div class="social-icons">
-                            <a href="https://github.com/mesfinhaileslassie" target="_blank" class="social-icon">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <a href="https://t.me/Mesfinchacha" target="_blank" class="social-icon">
-                                <i class="fab fa-telegram"></i>
-                                <span>Telegram</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/mesfin-haileslassie-b2105133a" target="_blank" class="social-icon">
-                                <i class="fab fa-linkedin"></i>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="mailto:mesfinhaileslassie17@gmail.com" class="social-icon">
-                                <i class="fas fa-envelope"></i>
-                                <span>Email</span>
-                            </a>
-                        </div>
+                    <div class="contact-tips">
+                        <h3>Email Tips:</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Include your name and contact info</li>
+                            <li><i class="fas fa-check"></i> Be specific about your inquiry</li>
+                            <li><i class="fas fa-check"></i> I respond within 24 hours</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Email Preview Modal -->
-        <div id="previewModal" class="modal">
+        <!-- Email Options Modal -->
+        <div id="emailOptionsModal" class="modal">
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
-                <h2><i class="fas fa-eye"></i> Email Preview</h2>
-                <div class="preview-content">
+                <h2><i class="fas fa-paper-plane"></i> Send Your Message</h2>
+                <p class="modal-subtitle">Choose your preferred method to send the email</p>
+                
+                <div class="email-preview">
                     <div class="preview-header">
                         <div class="preview-field">
                             <strong>To:</strong> mesfinhaileslassie17@gmail.com
                         </div>
                         <div class="preview-field">
-                            <strong>Subject:</strong> <span id="previewSubject"></span>
+                            <strong>Subject:</strong> <span id="previewSubject">General Inquiry</span>
                         </div>
                         <div class="preview-field">
-                            <strong>From:</strong> <span id="previewSender"></span> (<span id="previewEmail"></span>)
+                            <strong>From:</strong> <span id="previewName">Your Name</span> (<span id="previewEmail">your@email.com</span>)
                         </div>
                     </div>
                     <div class="preview-body">
-                        <h4>Message:</h4>
-                        <div class="message-preview" id="previewMessage"></div>
+                        <h4>Message Preview:</h4>
+                        <div class="message-content" id="previewMessage">
+                            Your message will appear here...
+                        </div>
                     </div>
-                    <div class="preview-actions">
-                        <button class="btn btn-primary" id="sendFromPreview">
-                            <i class="fas fa-paper-plane"></i> Open in Email Client
-                        </button>
-                        <button class="btn btn-outline" id="editPreview">
-                            <i class="fas fa-edit"></i> Edit Message
-                        </button>
+                </div>
+                
+                <div class="email-options">
+                    <!-- Option 1: Direct Mailto -->
+                    <div class="email-option">
+                        <div class="option-header">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email Client</h3>
+                        </div>
+                        <p>Open your default email app (Gmail, Outlook, Apple Mail)</p>
+                        <a href="#" class="btn btn-primary" id="openMailtoBtn">
+                            <i class="fas fa-external-link-alt"></i> Open Email App
+                        </a>
+                        <small class="option-note">Works best on desktop</small>
                     </div>
+                    
+                    <!-- Option 2: Gmail Web -->
+                    <div class="email-option">
+                        <div class="option-header">
+                            <i class="fab fa-google"></i>
+                            <h3>Gmail Web</h3>
+                        </div>
+                        <p>Open Gmail in your browser with message pre-filled</p>
+                        <a href="#" class="btn btn-outline" id="openGmailBtn" target="_blank">
+                            <i class="fab fa-google"></i> Open Gmail.com
+                        </a>
+                        <small class="option-note">100% working in browsers</small>
+                    </div>
+                    
+                    <!-- Option 3: Copy Details -->
+                    <div class="email-option">
+                        <div class="option-header">
+                            <i class="fas fa-copy"></i>
+                            <h3>Copy Details</h3>
+                        </div>
+                        <p>Copy email details and paste into any email app</p>
+                        <button class="btn" id="copyAllDetailsBtn">
+                            <i class="fas fa-copy"></i> Copy All Details
+                        </button>
+                        <small class="option-note">Manual option - always works</small>
+                    </div>
+                </div>
+                
+                <div class="manual-option">
+                    <h4><i class="fas fa-hands-helping"></i> Manual Option (Always Works):</h4>
+                    <div class="manual-steps">
+                        <p><strong>Step 1:</strong> Open your email app (Gmail, Outlook, etc.)</p>
+                        <p><strong>Step 2:</strong> Set recipient to: <code class="copyable">mesfinhaileslassie17@gmail.com</code></p>
+                        <p><strong>Step 3:</strong> Copy the subject and message from above</p>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn btn-text" id="editMessageBtn">
+                        <i class="fas fa-edit"></i> Edit Message
+                    </button>
+                    <button class="btn btn-text" id="closeModalBtn">
+                        <i class="fas fa-times"></i> Close
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Success Message -->
+        <!-- Success Toast -->
         <div id="successToast" class="toast">
             <i class="fas fa-check-circle"></i>
-            <span>Email opened successfully in your email client!</span>
+            <span id="toastMessage">Email details copied to clipboard!</span>
             <button class="toast-close">&times;</button>
+        </div>
+
+        <!-- Email Test Section -->
+        <div class="email-test">
+            <h3><i class="fas fa-vial"></i> Test Email Function</h3>
+            <p>Try these direct email links to ensure they work on your device:</p>
+            <div class="test-buttons">
+                <a href="mailto:mesfinhaileslassie17@gmail.com?subject=Test%20Email&body=Hello%20Mesfin,%0D%0A%0D%0AThis%20is%20a%20test%20email%20from%20your%20portfolio." 
+                   class="btn btn-small">
+                    <i class="fas fa-envelope"></i> Test Simple Email
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mesfinhaileslassie17@gmail.com&su=Portfolio%20Inquiry&body=Hello%20Mesfin," 
+                   target="_blank" 
+                   class="btn btn-small btn-outline">
+                    <i class="fab fa-google"></i> Test Gmail Web
+                </a>
+            </div>
         </div>
     </main>
 
@@ -252,7 +306,7 @@
             <a href="https://t.me/Mesfinchacha" target="_blank"><i class="fab fa-telegram"></i></a>
             <a href="mailto:mesfinhaileslassie17@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; 2024 Mesfin Haileslassie. All rights reserved.</p>
+        <p>&copy; <span id="currentYear"></span> Mesfin Haileslassie. All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>

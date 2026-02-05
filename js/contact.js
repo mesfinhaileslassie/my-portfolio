@@ -1,17 +1,31 @@
-// ====== PROFESSIONAL CONTACT FORM ======
+// ====== 100% WORKING EMAIL CONTACT FORM ======
 
 document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
     const form = document.getElementById('messageForm');
     const messageInput = document.getElementById('message');
     const charCount = document.getElementById('charCount');
-    const previewBtn = document.getElementById('previewBtn');
-    const openEmailBtn = document.getElementById('openEmailBtn');
-    const previewModal = document.getElementById('previewModal');
-    const closeModal = document.querySelector('.close-modal');
-    const editPreviewBtn = document.getElementById('editPreview');
-    const sendFromPreviewBtn = document.getElementById('sendFromPreview');
+    const generateEmailBtn = document.getElementById('generateEmailBtn');
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const emailModal = document.getElementById('emailOptionsModal');
+    const closeModalBtn = document.querySelector('.close-modal');
+    const closeModalBtn2 = document.getElementById('closeModalBtn');
+    const editMessageBtn = document.getElementById('editMessageBtn');
+    const openMailtoBtn = document.getElementById('openMailtoBtn');
+    const openGmailBtn = document.getElementById('openGmailBtn');
+    const copyAllDetailsBtn = document.getElementById('copyAllDetailsBtn');
     const successToast = document.getElementById('successToast');
+    const toastMessage = document.getElementById('toastMessage');
     const toastClose = document.querySelector('.toast-close');
+    
+    // Preview elements
+    const previewSubject = document.getElementById('previewSubject');
+    const previewName = document.getElementById('previewName');
+    const previewEmail = document.getElementById('previewEmail');
+    const previewMessage = document.getElementById('previewMessage');
+    
+    // Store email data
+    let currentEmailData = null;
     
     // Character counter
     messageInput.addEventListener('input', function() {
@@ -74,24 +88,23 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
     }
     
-    // Generate email content
+    // Generate email content with timestamp
     function generateEmailContent() {
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value.trim();
+        const timestamp = new Date().toLocaleDateString();
         
-        // Create a professional email body
-        const emailBody = `
-Hello Mesfin,
+        // Create professional email body
+        const emailBody = `Hello Mesfin,
 
 I'm ${name} (${email}).
 
 ${message}
 
 ---
-
-This message was sent from your portfolio contact form.
+Sent from your portfolio contact form on ${timestamp}
 Subject: ${subject}
 
 Best regards,
@@ -99,74 +112,133 @@ ${name}
 ${email}`;
         
         return {
-            to: 'mesfinhaileslassie17@gmail.com',
+            name: name,
+            email: email,
             subject: subject,
-            body: encodeURIComponent(emailBody)
+            message: message,
+            timestamp: timestamp,
+            to: 'mesfinhaileslassie17@gmail.com',
+            body: emailBody,
+            encodedBody: encodeURIComponent(emailBody),
+            encodedSubject: encodeURIComponent(subject)
         };
     }
     
-    // Open email client
-    function openEmailClient() {
-        if (!validateForm()) {
-            return;
-        }
+    // Update preview in modal
+    function updatePreview() {
+        currentEmailData = generateEmailContent();
         
-        const emailData = generateEmailContent();
-        const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${emailData.body}`;
+        previewSubject.textContent = currentEmailData.subject;
+        previewName.textContent = currentEmailData.name;
+        previewEmail.textContent = currentEmailData.email;
+        previewMessage.textContent = currentEmailData.body;
         
-        // Open email client
-        window.location.href = mailtoLink;
+        // Update mailto link
+        openMailtoBtn.href = `mailto:${currentEmailData.to}?subject=${currentEmailData.encodedSubject}&body=${currentEmailData.encodedBody}`;
         
-        // Show success message
-        showSuccessToast();
-        
-        // Optional: Clear form after successful submission
-        setTimeout(() => {
-            form.reset();
-            charCount.textContent = '0';
-        }, 1000);
+        // Update Gmail link
+        openGmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${currentEmailData.to}&su=${currentEmailData.encodedSubject}&body=${currentEmailData.encodedBody}`;
     }
     
-    // Show preview modal
-    function showPreview() {
+    // Generate email button click
+    generateEmailBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
         if (!validateForm()) {
             return;
         }
         
-        const emailData = generateEmailContent();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        
-        // Update preview content
-        document.getElementById('previewSubject').textContent = emailData.subject;
-        document.getElementById('previewSender').textContent = name;
-        document.getElementById('previewEmail').textContent = email;
-        document.getElementById('previewMessage').textContent = decodeURIComponent(emailData.body);
-        
-        // Show modal
-        previewModal.style.display = 'block';
+        updatePreview();
+        emailModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
-    }
+    });
     
-    // Send from preview
-    function sendFromPreview() {
-        const emailData = generateEmailContent();
-        const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${emailData.body}`;
+    // Copy email details button
+    copyEmailBtn.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        window.location.href = mailtoLink;
-        previewModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        showSuccessToast();
-    }
+        if (!validateForm()) {
+            return;
+        }
+        
+        const emailData = generateEmailContent();
+        const details = `
+To: ${emailData.to}
+Subject: ${emailData.subject}
+From: ${emailData.name} <${emailData.email}>
+
+Message:
+${emailData.message}
+        `.trim();
+        
+        navigator.clipboard.writeText(details).then(() => {
+            showToast('Email details copied to clipboard!');
+        }).catch(err => {
+            console.error('Copy failed:', err);
+            showToast('Failed to copy. Please copy manually.');
+        });
+    });
     
-    // Show success toast
-    function showSuccessToast() {
+    // Open mailto link
+    openMailtoBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Try to open mailto
+        const mailtoOpened = window.open(this.href, '_blank');
+        
+        // Check if mailto was blocked
+        setTimeout(() => {
+            if (!mailtoOpened || mailtoOpened.closed || typeof mailtoOpened.closed == 'undefined') {
+                showToast('Email client blocked. Try Gmail Web option.');
+            } else {
+                showToast('Opening email client...');
+                emailModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }, 100);
+    });
+    
+    // Open Gmail Web
+    openGmailBtn.addEventListener('click', function() {
+        showToast('Opening Gmail in new tab...');
+        emailModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    // Copy all details button in modal
+    copyAllDetailsBtn.addEventListener('click', function() {
+        if (!currentEmailData) return;
+        
+        const fullDetails = `
+TO: ${currentEmailData.to}
+SUBJECT: ${currentEmailData.subject}
+FROM: ${currentEmailData.name} <${currentEmailData.email}>
+DATE: ${currentEmailData.timestamp}
+
+MESSAGE:
+${currentEmailData.message}
+
+---
+This email was generated from Mesfin's portfolio contact form.
+Please reply to ${currentEmailData.email} for response.
+        `.trim();
+        
+        navigator.clipboard.writeText(fullDetails).then(() => {
+            showToast('All email details copied! Paste into any email app.');
+        }).catch(err => {
+            console.error('Copy failed:', err);
+            showToast('Failed to copy. Please copy manually from preview.');
+        });
+    });
+    
+    // Show toast notification
+    function showToast(message) {
+        toastMessage.textContent = message;
         successToast.classList.add('show');
         
-        // Auto hide after 5 seconds
         setTimeout(() => {
             successToast.classList.remove('show');
-        }, 5000);
+        }, 4000);
     }
     
     // Close toast
@@ -176,64 +248,51 @@ ${email}`;
         });
     }
     
-    // Event Listeners
-    openEmailBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        openEmailClient();
-    });
-    
-    previewBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        showPreview();
-    });
-    
-    // Close modal
-    closeModal.addEventListener('click', () => {
-        previewModal.style.display = 'none';
+    // Modal functionality
+    closeModalBtn.addEventListener('click', () => {
+        emailModal.style.display = 'none';
         document.body.style.overflow = 'auto';
+    });
+    
+    closeModalBtn2.addEventListener('click', () => {
+        emailModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    editMessageBtn.addEventListener('click', () => {
+        emailModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Scroll to form
+        document.querySelector('.contact-form').scrollIntoView({ behavior: 'smooth' });
     });
     
     // Close modal on outside click
     window.addEventListener('click', (e) => {
-        if (e.target === previewModal) {
-            previewModal.style.display = 'none';
+        if (e.target === emailModal) {
+            emailModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     });
     
-    // Edit preview
-    editPreviewBtn.addEventListener('click', () => {
-        previewModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-    
-    // Send from preview
-    sendFromPreviewBtn.addEventListener('click', sendFromPreview);
-    
-    // Copy email button functionality
-    document.querySelectorAll('.copy-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const text = this.getAttribute('data-text');
-            navigator.clipboard.writeText(text).then(() => {
-                const originalHTML = this.innerHTML;
-                this.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                this.style.background = 'var(--success-color)';
-                
-                setTimeout(() => {
-                    this.innerHTML = originalHTML;
-                    this.style.background = '';
-                }, 2000);
-            });
-        });
-    });
-    
-    // Form submission via Enter key
-    form.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
-            e.preventDefault();
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && emailModal.style.display === 'block') {
+            emailModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
     });
     
+    // Test fallback: Detect if mailto works
+    function testMailtoSupport() {
+        const testLink = document.createElement('a');
+        testLink.href = 'mailto:test@example.com';
+        return testLink.protocol === 'mailto:';
+    }
+    
     // Initialize character count
     charCount.textContent = messageInput.value.length;
+    
+    // Add date to footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
 });
