@@ -2032,4 +2032,232 @@ textarea.error {
 
 
 
+/* ====== PROJECT BUTTON COLORS ====== */
+
+/* Project buttons in project cards */
+.project-links .btn,
+.project-links .btn-small,
+.project-links .btn-outline {
+    background: white !important;
+    color: var(--primary-color) !important;
+    border: 2px solid white !important;
+}
+
+/* Hover effects for project buttons */
+.project-links .btn:hover,
+.project-links .btn-small:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-3px);
+}
+
+/* Specific styling for outline buttons in projects */
+.project-links .btn-outline {
+    background: transparent !important;
+    color: white !important;
+    border: 2px solid white !important;
+}
+
+.project-links .btn-outline:hover {
+    background: white !important;
+    color: var(--primary-color) !important;
+    border-color: white !important;
+}
+
+/* GitHub icon buttons in projects */
+.project-links .btn i,
+.project-links .btn-small i {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.project-links .btn:hover i,
+.project-links .btn-small:hover i {
+    color: white;
+}
+
+.project-links .btn-outline i {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.project-links .btn-outline:hover i {
+    color: var(--primary-color);
+}
+
+/* Modal buttons in project details */
+.modal-links .btn,
+.modal-links .btn-outline {
+    background: white !important;
+    color: var(--primary-color) !important;
+    border: 2px solid white !important;
+}
+
+.modal-links .btn:hover,
+.modal-links .btn-outline:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+
+.modal-links .btn-outline {
+    background: transparent !important;
+    color: white !important;
+    border: 2px solid white !important;
+}
+
+.modal-links .btn-outline:hover {
+    background: white !important;
+    color: var(--primary-color) !important;
+}
+
+/* GitHub stats card button */
+.github-stat-card .btn-small {
+    background: white !important;
+    color: var(--primary-color) !important;
+    border: 2px solid white !important;
+}
+
+.github-stat-card .btn-small:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Repository link buttons */
+.repo-link {
+    color: white !important;
+    background: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.repo-link:hover {
+    background: white;
+    color: var(--primary-color) !important;
+    transform: translateX(5px);
+}
+
+/* View All Projects button */
+.view-all-projects .btn {
+    background: white !important;
+    color: var(--primary-color) !important;
+    border: 2px solid white !important;
+    font-weight: 600;
+}
+
+.view-all-projects .btn:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-5px);
+}
+
+/* Project link in preview cards */
+.project-link {
+    color: white !important;
+    background: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: white;
+    color: var(--primary-color) !important;
+    gap: 0.75rem;
+}
+
+/* Dark theme adjustments for project buttons */
+[data-theme="dark"] .project-links .btn,
+[data-theme="dark"] .project-links .btn-small,
+[data-theme="dark"] .project-links .btn-outline,
+[data-theme="dark"] .modal-links .btn,
+[data-theme="dark"] .modal-links .btn-outline,
+[data-theme="dark"] .github-stat-card .btn-small,
+[data-theme="dark"] .view-all-projects .btn {
+    background: white !important;
+    color: var(--primary-color) !important;
+    border: 2px solid white !important;
+}
+
+[data-theme="dark"] .project-links .btn-outline,
+[data-theme="dark"] .modal-links .btn-outline {
+    background: transparent !important;
+    color: white !important;
+    border: 2px solid white !important;
+}
+
+[data-theme="dark"] .project-links .btn-outline:hover,
+[data-theme="dark"] .modal-links .btn-outline:hover {
+    background: white !important;
+    color: var(--primary-color) !important;
+}
+
+/* Ensure consistent button styling across all project sections */
+.projects-grid .btn,
+.projects-section .btn,
+.github-stats .btn,
+.projects-preview .btn {
+    background: white !important;
+    color: var(--primary-color) !important;
+    border: 2px solid white !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.projects-grid .btn:hover,
+.projects-section .btn:hover,
+.github-stats .btn:hover,
+.projects-preview .btn:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+}
+
+/* Button icons in projects */
+.projects-grid .btn i,
+.projects-section .btn i,
+.github-stats .btn i,
+.projects-preview .btn i {
+    transition: transform 0.3s ease;
+}
+
+.projects-grid .btn:hover i,
+.projects-section .btn:hover i,
+.github-stats .btn:hover i,
+.projects-preview .btn:hover i {
+    transform: translateX(3px);
+}
+
+/* Active state for project buttons */
+.projects-grid .btn:active,
+.projects-section .btn:active,
+.github-stats .btn:active,
+.projects-preview .btn:active {
+    transform: scale(0.98);
+}
+
+/* Focus state for accessibility */
+.projects-grid .btn:focus,
+.projects-section .btn:focus,
+.github-stats .btn:focus,
+.projects-preview .btn:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+
+
 
