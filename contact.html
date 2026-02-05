@@ -51,18 +51,18 @@
                             <div class="form-hint">Minimum 2 characters</div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="email">
-                                <i class="fas fa-envelope"></i> Your Email *
-                            </label>
-                            <input type="email" 
-                                   id="email" 
-                                   name="email" 
-                                   placeholder="your.email@example.com" 
-                                   required
-                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                            <div class="form-hint">Required for me to reply</div>
-                        </div>
+                       <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Your Email Address *
+                    </label>
+                    <input type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your.email@example.com" 
+                        required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <div class="form-hint">This is where I'll send my reply</div>
+                </div>
                         
                         <div class="form-group">
                             <label for="subject">
@@ -154,10 +154,24 @@
                             </div>
                             <div class="info-content">
                                 <h3>WhatsApp</h3>
-                                <a href="https://wa.me/251912345678" target="_blank" class="social-link">
-                                    +251 91 234 5678
-                                </a>
+                                <a href="https://wa.me/251992116527" target="_blank" class="social-link">
+                                    +251 92116527                                </a>
                                 <p class="info-note">Available for calls</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Linkdin</h3>
+                                <a href="https://www.linkedin.com/in/mesfin-haileslassie-b2105133a" target="_blank" class="social-icon"
+                           aria-label="LinkedIn" data-tooltip="LinkedIn Profile">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <p>Check my linkeddin</p>
+                           
                             </div>
                         </div>
                         
@@ -195,17 +209,19 @@
                 <p class="modal-subtitle">Choose your preferred method to send the email</p>
                 
                 <div class="email-preview">
-                    <div class="preview-header">
-                        <div class="preview-field">
-                            <strong>To:</strong> mesfinhaileslassie17@gmail.com
-                        </div>
-                        <div class="preview-field">
-                            <strong>Subject:</strong> <span id="previewSubject">General Inquiry</span>
-                        </div>
-                        <div class="preview-field">
-                            <strong>From:</strong> <span id="previewName">Your Name</span> (<span id="previewEmail">your@email.com</span>)
-                        </div>
+             
+                <div class="preview-header">
+                    <div class="preview-field">
+                        <strong>To (Recipient):</strong> mesfinhaileslassie17@gmail.com
                     </div>
+                    <div class="preview-field">
+                        <strong>Subject:</strong> <span id="previewSubject">General Inquiry</span>
+                    </div>
+                    <div class="preview-field">
+                        <strong>From (You):</strong> <span id="previewName">Your Name</span> (<span id="previewEmail">your@email.com</span>)
+                    </div>
+                </div>
+                                    </div>
                     <div class="preview-body">
                         <h4>Message Preview:</h4>
                         <div class="message-content" id="previewMessage">
@@ -255,14 +271,16 @@
                     </div>
                 </div>
                 
-                <div class="manual-option">
-                    <h4><i class="fas fa-hands-helping"></i> Manual Option (Always Works):</h4>
-                    <div class="manual-steps">
-                        <p><strong>Step 1:</strong> Open your email app (Gmail, Outlook, etc.)</p>
-                        <p><strong>Step 2:</strong> Set recipient to: <code class="copyable">mesfinhaileslassie17@gmail.com</code></p>
-                        <p><strong>Step 3:</strong> Copy the subject and message from above</p>
+                <!-- Update manual instructions section -->
+                    <div class="manual-option">
+                        <h4><i class="fas fa-hands-helping"></i> Manual Option (Always Works):</h4>
+                        <div class="manual-steps">
+                            <p><strong>Step 1:</strong> Open your email app (Gmail, Outlook, etc.)</p>
+                            <p><strong>Step 2:</strong> Set recipient to: <code class="copyable">mesfinhaileslassie17@gmail.com</code></p>
+                            <p><strong>Step 3:</strong> Your email (<code class="copyable" id="manualUserEmail">your@email.com</code>) will be used as sender</p>
+                            <p><strong>Step 4:</strong> Copy the subject and message from above</p>
+                        </div>
                     </div>
-                </div>
                 
                 <div class="modal-actions">
                     <button class="btn btn-text" id="editMessageBtn">
@@ -283,21 +301,7 @@
         </div>
 
         <!-- Email Test Section -->
-        <div class="email-test">
-            <h3><i class="fas fa-vial"></i> Test Email Function</h3>
-            <p>Try these direct email links to ensure they work on your device:</p>
-            <div class="test-buttons">
-                <a href="mailto:mesfinhaileslassie17@gmail.com?subject=Test%20Email&body=Hello%20Mesfin,%0D%0A%0D%0AThis%20is%20a%20test%20email%20from%20your%20portfolio." 
-                   class="btn btn-small">
-                    <i class="fas fa-envelope"></i> Test Simple Email
-                </a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mesfinhaileslassie17@gmail.com&su=Portfolio%20Inquiry&body=Hello%20Mesfin," 
-                   target="_blank" 
-                   class="btn btn-small btn-outline">
-                    <i class="fab fa-google"></i> Test Gmail Web
-                </a>
-            </div>
-        </div>
+        
     </main>
 
     <footer>

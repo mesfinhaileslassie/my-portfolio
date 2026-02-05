@@ -88,18 +88,19 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
     }
     
-    // Generate email content with timestamp
-    function generateEmailContent() {
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value.trim();
-        const timestamp = new Date().toLocaleDateString();
-        
-        // Create professional email body
-        const emailBody = `Hello Mesfin,
+   
+  // Generate email content with PROPER sender/recipient
+function generateEmailContent() {
+    const name = document.getElementById('name').value.trim();
+    const userEmail = document.getElementById('email').value.trim(); // Visitor's email
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+    const timestamp = new Date().toLocaleDateString();
+    
+    // Create professional email body
+    const emailBody = `Hello Mesfin,
 
-I'm ${name} (${email}).
+I'm ${name} (${userEmail}).
 
 ${message}
 
@@ -109,36 +110,38 @@ Subject: ${subject}
 
 Best regards,
 ${name}
-${email}`;
-        
-        return {
-            name: name,
-            email: email,
-            subject: subject,
-            message: message,
-            timestamp: timestamp,
-            to: 'mesfinhaileslassie17@gmail.com',
-            body: emailBody,
-            encodedBody: encodeURIComponent(emailBody),
-            encodedSubject: encodeURIComponent(subject)
-        };
-    }
+${userEmail}`;
+    
+    return {
+        senderName: name,
+        senderEmail: userEmail, // Visitor's email
+        recipientEmail: 'mesfinhaileslassie17@gmail.com', // YOUR email
+        subject: subject,
+        message: message,
+        timestamp: timestamp,
+        body: emailBody,
+        encodedBody: encodeURIComponent(emailBody),
+        encodedSubject: encodeURIComponent(subject)
+    };
+}
     
     // Update preview in modal
-    function updatePreview() {
-        currentEmailData = generateEmailContent();
-        
-        previewSubject.textContent = currentEmailData.subject;
-        previewName.textContent = currentEmailData.name;
-        previewEmail.textContent = currentEmailData.email;
-        previewMessage.textContent = currentEmailData.body;
-        
-        // Update mailto link
-        openMailtoBtn.href = `mailto:${currentEmailData.to}?subject=${currentEmailData.encodedSubject}&body=${currentEmailData.encodedBody}`;
-        
-        // Update Gmail link
-        openGmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${currentEmailData.to}&su=${currentEmailData.encodedSubject}&body=${currentEmailData.encodedBody}`;
-    }
+    // Update preview in modal with clear labels
+function updatePreview() {
+    document.getElementById('manualUserEmail').textContent = currentEmailData.senderEmail;
+    currentEmailData = generateEmailContent();
+    
+    previewSubject.textContent = currentEmailData.subject;
+    previewName.textContent = currentEmailData.senderName;
+    previewEmail.textContent = currentEmailData.senderEmail; // Visitor's email
+    previewMessage.textContent = currentEmailData.body;
+    
+    // Update mailto link (TO: your email, FROM: visitor's email will be set by their email client)
+    openMailtoBtn.href = `mailto:${currentEmailData.recipientEmail}?subject=${currentEmailData.encodedSubject}&body=${currentEmailData.encodedBody}`;
+    
+    // Update Gmail link
+    openGmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${currentEmailData.recipientEmail}&su=${currentEmailData.encodedSubject}&body=${currentEmailData.encodedBody}`;
+}
     
     // Generate email button click
     generateEmailBtn.addEventListener('click', function(e) {
