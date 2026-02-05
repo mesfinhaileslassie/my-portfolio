@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me | Mesfin</title>
+    <title>Contact Me | Mesfin Haileslassie - Computer Science Student</title>
+    <meta name="description" content="Get in touch with Mesfin Haileslassie for collaborations, internship opportunities, or technology discussions.">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,61 +24,226 @@
     <main>
         <section class="contact-hero">
             <h1>Let's <span class="highlight">Connect</span></h1>
-            <p>I'd love to hear from you!</p>
+            <p>I'm always open to discussing new opportunities and collaborations</p>
         </section>
 
         <section class="contact-section">
             <div class="contact-container">
+                <!-- Professional Contact Form -->
                 <div class="contact-form">
-                    <h2>Send Me a Message</h2>
-                    <form>
+                    <div class="form-header">
+                        <h2><i class="fas fa-paper-plane"></i> Send Me a Message</h2>
+                        <p class="form-subtitle">Fill the form below and click "Open Email" to send me a message directly from your email client</p>
+                    </div>
+                    
+                    <form id="messageForm">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name">
+                                <i class="fas fa-user"></i> Your Name *
+                            </label>
+                            <input type="text" 
+                                   id="name" 
+                                   name="name" 
+                                   placeholder="Enter your full name" 
+                                   required
+                                   minlength="2"
+                                   maxlength="50">
+                            <div class="form-hint">Minimum 2 characters</div>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email Address *
+                            </label>
+                            <input type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   placeholder="your.email@example.com" 
+                                   required
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <div class="form-hint">We'll never share your email</div>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="subject">
+                                <i class="fas fa-tag"></i> Subject
+                            </label>
+                            <select id="subject" name="subject">
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Project Collaboration">Project Collaboration</option>
+                                <option value="Internship Opportunity">Internship Opportunity</option>
+                                <option value="Job Opportunity">Job Opportunity</option>
+                                <option value="Technical Discussion">Technical Discussion</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
+                        
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fas fa-comment"></i> Your Message *
+                            </label>
+                            <textarea id="message" 
+                                      name="message" 
+                                      rows="6" 
+                                      placeholder="Write your message here... Please include any relevant details about your inquiry." 
+                                      required
+                                      minlength="10"
+                                      maxlength="1000"></textarea>
+                            <div class="form-hint">
+                                <span id="charCount">0</span>/1000 characters
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="openEmailBtn">
+                                <i class="fas fa-envelope-open"></i> Open Email
+                            </button>
+                            <button type="button" class="btn btn-outline" id="previewBtn">
+                                <i class="fas fa-eye"></i> Preview
+                            </button>
+                            <button type="reset" class="btn btn-text">
+                                <i class="fas fa-redo"></i> Clear Form
+                            </button>
+                        </div>
+                        
+                        <div class="form-note">
+                            <i class="fas fa-info-circle"></i>
+                            <p>This will open your default email client (Gmail, Outlook, etc.) with your message ready to send. 100% working!</p>
+                        </div>
                     </form>
                 </div>
 
+                <!-- Contact Information -->
                 <div class="contact-info">
-                    <h2>Contact Information</h2>
-                    <div class="info-item">
-    <i class="fas fa-envelope"></i>
-    <a href="mailto:mesfinhaileslassie17@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Mesfin," style="color: inherit; text-decoration: none;">mesfinhaileslassie17@gmail.com</a>
-</div>
-                    <div class="info-item">
-                        <i class="fab fa-telegram"></i>
-                        <p>@Mesfinchacha</p>
+                    <div class="info-header">
+                        <h2><i class="fas fa-address-card"></i> Contact Information</h2>
+                        <p>Feel free to reach out through any of these channels</p>
                     </div>
-                    <div class="info-item">
-                        <i class="fab fa-github"></i>
-                        <p>github.com/Mesfinchacha</p>
+                    
+                    <div class="info-items">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Email</h3>
+                                <a href="mailto:mesfinhaileslassie17@gmail.com?subject=Portfolio%20Inquiry" 
+                                   class="email-link">
+                                    mesfinhaileslassie17@gmail.com
+                                </a>
+                                <button class="copy-btn" data-text="mesfinhaileslassie17@gmail.com">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Telegram</h3>
+                                <p>@Mesfinchacha</p>
+                                <a href="https://t.me/Mesfinchacha" target="_blank" class="social-link">
+                                    <i class="fab fa-telegram"></i> Send Message
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>GitHub</h3>
+                                <p>Check out my projects</p>
+                                <a href="https://github.com/mesfinhaileslassie" target="_blank" class="social-link">
+                                    <i class="fab fa-github"></i> Visit Profile
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h3>Location</h3>
+                                <p>Debre Berhan, Ethiopia</p>
+                                <p class="location-note">Open to remote opportunities worldwide</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="response-time">
+                        <i class="fas fa-clock"></i>
+                        <p>I typically respond within <strong>24 hours</strong></p>
                     </div>
                     
                     <div class="social-links">
-                        <a href="https://github.com/Mesfinchacha" target="_blank" class="social-icon">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://t.me/Mesfinchacha" target="_blank" class="social-icon">
-                            <i class="fab fa-telegram"></i>
-                        </a>
-                        <a href="mailto:mesfinhaileslassie17@gmail.com" class="social-icon">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                        <h3>Connect on Social Media</h3>
+                        <div class="social-icons">
+                            <a href="https://github.com/mesfinhaileslassie" target="_blank" class="social-icon">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://t.me/Mesfinchacha" target="_blank" class="social-icon">
+                                <i class="fab fa-telegram"></i>
+                                <span>Telegram</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mesfin-haileslassie-b2105133a" target="_blank" class="social-icon">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="mailto:mesfinhaileslassie17@gmail.com" class="social-icon">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Email Preview Modal -->
+        <div id="previewModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2><i class="fas fa-eye"></i> Email Preview</h2>
+                <div class="preview-content">
+                    <div class="preview-header">
+                        <div class="preview-field">
+                            <strong>To:</strong> mesfinhaileslassie17@gmail.com
+                        </div>
+                        <div class="preview-field">
+                            <strong>Subject:</strong> <span id="previewSubject"></span>
+                        </div>
+                        <div class="preview-field">
+                            <strong>From:</strong> <span id="previewSender"></span> (<span id="previewEmail"></span>)
+                        </div>
+                    </div>
+                    <div class="preview-body">
+                        <h4>Message:</h4>
+                        <div class="message-preview" id="previewMessage"></div>
+                    </div>
+                    <div class="preview-actions">
+                        <button class="btn btn-primary" id="sendFromPreview">
+                            <i class="fas fa-paper-plane"></i> Open in Email Client
+                        </button>
+                        <button class="btn btn-outline" id="editPreview">
+                            <i class="fas fa-edit"></i> Edit Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div id="successToast" class="toast">
+            <i class="fas fa-check-circle"></i>
+            <span>Email opened successfully in your email client!</span>
+            <button class="toast-close">&times;</button>
+        </div>
     </main>
 
     <footer>
@@ -86,9 +252,10 @@
             <a href="https://t.me/Mesfinchacha" target="_blank"><i class="fab fa-telegram"></i></a>
             <a href="mailto:mesfinhaileslassie17@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; 2026 Mesfin Haileslassie. All rights reserved.</p>
+        <p>&copy; 2024 Mesfin Haileslassie. All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 </html>
